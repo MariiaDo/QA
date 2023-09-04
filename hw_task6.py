@@ -14,7 +14,7 @@ Hints: Use dict to store key/value pairs. Use dict.get() method to lookup a key 
 
 Use str.join() method and dict comprehension for print result """
 
-input_str = "abcdefgabc"
+input_str = input("Введите строковые символы для анализа: ")
 my_dict_1 = {}
 printStr = ""
 for i in range(len(input_str)):
