@@ -22,11 +22,11 @@ class ProxyTxtRW(Read, Write):
             return self.__result
 
     def write(self, text: str):
-        if self._is_actual_write:
+        if self._is_actual_write == text:
             return self.__result
         else:
             self.__result = self.__real_writer.write(text)
-            self._is_actual_write = True
+            self._is_actual_write = text
             return self.__result
 
 
@@ -36,5 +36,8 @@ if __name__ == '__main__':
     proxy = ProxyTxtRW(reader_reader, writer_writer)
     print(proxy.read())  # тут прочитали файл
     print(proxy.read())  # тут вже не читаємо, а забираємо текст файлу
-    proxy.write("write first time")
-    proxy.write("try write again")
+    proxy.write("1")
+    proxy.write("1")
+    proxy.write("2")
+
+
